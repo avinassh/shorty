@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIWebViewDelegate {
+class ViewController: UIViewController, UIWebViewDelegate,
+                                        NSURLConnectionDelegate,
+                                        NSURLConnectionDataDelegate {
 
     @IBOutlet weak var urlField: UITextField!
     @IBOutlet weak var webView: UIWebView!
@@ -37,7 +39,6 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
     }
     
-    
     @IBAction func shortenURL(sender: AnyObject) {
         if let toShorten = webView.request?.URL.absoluteString {
             if let encodeURL = toShorten.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding) {
@@ -65,6 +66,25 @@ class ViewController: UIViewController, UIWebViewDelegate {
         let okAction = UIAlertAction(title: "That's Sad", style: .Default, handler: nil)
         alert.addAction(okAction)
         presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
+        shortLabel.title = "failed"
+        clipboardButton.enabled = false
+        shortenButton.enabled = true
+    }
+    
+    func connection(connection: NSURLConnection, didReceiveData data: NSData) {
+        shortURLData?.appendData(data)
+    }
+    
+    func connectionDidFinishLoading(connection: NSURLConnection) {
+        if let data = shortURLData {
+            if let shortURLString = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                shortLabel.title = shortURLString
+                clipboardButton.enabled = true
+            }
+        }
     }
     
     override func viewDidLoad() {
