@@ -51,6 +51,14 @@ class ViewController: UIViewController, UIWebViewDelegate,
         }
     }
     
+    @IBAction func clipboardURL(sender: AnyObject) {
+        if let shortURLString = shortLabel.title {
+            if let shortURL = NSURL(string: shortURLString) {
+                UIPasteboard.generalPasteboard().URL = shortURL
+            }
+        }
+    }
+    
     func webViewDidStartLoad(webView: UIWebView) {
         shortenButton.enabled = false
     }

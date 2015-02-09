@@ -61,7 +61,11 @@
                                     <barButtonItem title="Tap arrow to shorten" style="plain" id="Irc-sa-FCw">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </barButtonItem>
-                                    <barButtonItem enabled="NO" title="Copy" id="Kba-ft-Y3b"/>
+                                    <barButtonItem enabled="NO" title="Copy" id="Kba-ft-Y3b">
+                                        <connections>
+                                            <action selector="clipboardURL:" destination="BYZ-38-t0r" id="hqS-hF-cMU"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
