@@ -58,9 +58,11 @@
                                             <action selector="shortenURL:" destination="BYZ-38-t0r" id="hXy-OG-uMa"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wS8-DK-ZHJ"/>
                                     <barButtonItem title="Tap arrow to shorten" style="plain" id="Irc-sa-FCw">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tDU-jI-DDR"/>
                                     <barButtonItem enabled="NO" title="Copy" id="Kba-ft-Y3b">
                                         <connections>
                                             <action selector="clipboardURL:" destination="BYZ-38-t0r" id="hqS-hF-cMU"/>
@@ -77,6 +79,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aHp-a3-jFg" secondAttribute="bottom" constant="8" id="Au9-B9-Lwq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qgU-MR-Kbt" secondAttribute="trailing" constant="-16" id="G7g-81-AMI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aHp-a3-jFg" secondAttribute="bottom" constant="8" id="RvL-hR-LEc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aHp-a3-jFg" secondAttribute="trailing" constant="-16" id="TX2-Ze-Gc6"/>
                             <constraint firstItem="aHp-a3-jFg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="czp-nr-s8R"/>
                             <constraint firstItem="qgU-MR-Kbt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="dhA-hy-BWT"/>
                             <constraint firstItem="xtC-yk-iMq" firstAttribute="top" secondItem="qgU-MR-Kbt" secondAttribute="bottom" id="hX6-YK-8Oc"/>
