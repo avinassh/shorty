@@ -27,27 +27,66 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="go"/>
+                                            <connections>
+                                                <action selector="loadLocation:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="DIj-DO-R2f"/>
+                                            </connections>
                                         </textField>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="MgQ-1d-07T"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="MgQ-1d-07T">
+                                            <connections>
+                                                <action selector="loadLocation:" destination="BYZ-38-t0r" id="lCQ-iS-Qeo"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtC-yk-iMq">
-                                <rect key="frame" x="0.0" y="72" width="600" height="528"/>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xtC-yk-iMq">
+                                <rect key="frame" x="0.0" y="72" width="600" height="476"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="zJG-MC-sU1"/>
+                                </connections>
                             </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHp-a3-jFg">
+                                <rect key="frame" x="0.0" y="548" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="600" id="Ck9-b9-Vuv"/>
+                                    <constraint firstAttribute="width" constant="600" id="N7J-vV-s84"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem enabled="NO" systemItem="play" id="Eqr-LD-xGG">
+                                        <connections>
+                                            <action selector="shortenURL:" destination="BYZ-38-t0r" id="hXy-OG-uMa"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Tap arrow to shorten" style="plain" id="Irc-sa-FCw">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem enabled="NO" title="Copy" id="Kba-ft-Y3b"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xtC-yk-iMq" firstAttribute="top" secondItem="qgU-MR-Kbt" secondAttribute="bottom" id="370-hD-cal"/>
+                            <constraint firstItem="xtC-yk-iMq" firstAttribute="trailing" secondItem="qgU-MR-Kbt" secondAttribute="trailing" id="2GS-sk-Xzg"/>
                             <constraint firstItem="qgU-MR-Kbt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="3J7-oL-sON"/>
-                            <constraint firstItem="xtC-yk-iMq" firstAttribute="trailing" secondItem="qgU-MR-Kbt" secondAttribute="trailing" id="7g7-KT-IW9"/>
-                            <constraint firstItem="xtC-yk-iMq" firstAttribute="leading" secondItem="qgU-MR-Kbt" secondAttribute="leading" id="8s8-qN-NZa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aHp-a3-jFg" secondAttribute="bottom" constant="8" id="3SH-45-npI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aHp-a3-jFg" secondAttribute="bottom" constant="8" id="Au9-B9-Lwq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qgU-MR-Kbt" secondAttribute="trailing" constant="-16" id="G7g-81-AMI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aHp-a3-jFg" secondAttribute="bottom" constant="8" id="RvL-hR-LEc"/>
+                            <constraint firstItem="aHp-a3-jFg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="czp-nr-s8R"/>
                             <constraint firstItem="qgU-MR-Kbt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="dhA-hy-BWT"/>
-                            <constraint firstItem="xtC-yk-iMq" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="f3d-mt-5NR"/>
+                            <constraint firstItem="xtC-yk-iMq" firstAttribute="top" secondItem="qgU-MR-Kbt" secondAttribute="bottom" id="hX6-YK-8Oc"/>
+                            <constraint firstItem="xtC-yk-iMq" firstAttribute="bottom" secondItem="aHp-a3-jFg" secondAttribute="top" id="olm-wO-V5b"/>
+                            <constraint firstItem="xtC-yk-iMq" firstAttribute="leading" secondItem="qgU-MR-Kbt" secondAttribute="leading" id="vLT-5G-e2g"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="clipboardButton" destination="Kba-ft-Y3b" id="DbD-CN-ZPk"/>
+                        <outlet property="shortLabel" destination="Irc-sa-FCw" id="myM-S1-3Jl"/>
+                        <outlet property="shortenButton" destination="Eqr-LD-xGG" id="bf1-m4-uJl"/>
+                        <outlet property="urlField" destination="iHM-WV-em4" id="jiW-Zg-GHF"/>
+                        <outlet property="webView" destination="xtC-yk-iMq" id="8eC-Cg-joo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
